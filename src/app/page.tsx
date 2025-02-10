@@ -1,101 +1,155 @@
-import Image from "next/image";
+import React from 'react';
+import { ArrowRight, BarChart2, Lock, Smartphone, Globe, ArrowUpRight } from 'lucide-react';
 
-export default function Home() {
+const Home = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-black text-white">
+      {/* Hero Section */}
+      <div className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div className="text-center">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+              Track Crypto Like a Pro
+            </h1>
+            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+              Real-time cryptocurrency tracking, advanced analytics, and portfolio management all in one place.
+            </p>
+            <div className="flex gap-4 justify-center">
+              <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-medium flex items-center gap-2">
+                Get Started <ArrowRight className="w-4 h-4" />
+              </button>
+              <button className="border border-gray-600 hover:border-gray-500 px-8 py-3 rounded-lg font-medium">
+                View Demo
+              </button>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </div>
+
+      {/* Features Section */}
+      <div className="py-24 bg-gray-900/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-4">Why Choose CryptoTracker</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Advanced tools and features designed for both beginners and experienced traders
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: <BarChart2 className="w-6 h-6" />,
+                title: "Real-Time Analytics",
+                description: "Track prices, market cap, and trading volume with real-time updates and alerts"
+              },
+              {
+                icon: <Lock className="w-6 h-6" />,
+                title: "Secure Platform",
+                description: "Bank-grade encryption and security measures to protect your data and assets"
+              },
+              {
+                icon: <Smartphone className="w-6 h-6" />,
+                title: "Mobile First",
+                description: "Access your portfolio and trades anywhere with our mobile apps"
+              },
+              {
+                icon: <Globe className="w-6 h-6" />,
+                title: "Global Markets",
+                description: "Track cryptocurrencies across multiple exchanges and markets worldwide"
+              }
+            ].map((feature, index) => (
+              <div key={index} className="bg-gray-800/50 p-6 rounded-xl hover:bg-gray-800 transition-colors">
+                <div className="bg-blue-500/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-blue-400">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                <p className="text-gray-400">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Stats Section */}
+      <div className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-3 gap-8 text-center">
+            {[
+              { number: "2M+", label: "Active Users" },
+              { number: "$50B+", label: "Trading Volume" },
+              { number: "100+", label: "Supported Coins" }
+            ].map((stat, index) => (
+              <div key={index}>
+                <div className="text-4xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+                  {stat.number}
+                </div>
+                <div className="text-gray-400">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* CTA Section */}
+      <div className="py-24 bg-gradient-to-r from-blue-600/10 to-purple-600/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gray-800/50 rounded-2xl p-8 md:p-12 text-center">
+            <h2 className="text-3xl font-bold mb-4">Start Trading Today</h2>
+            <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
+              Join millions of traders worldwide and experience the future of cryptocurrency trading
+            </p>
+            <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-medium flex items-center gap-2 mx-auto">
+              Create Free Account <ArrowUpRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="py-12 border-t border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="text-lg font-bold mb-4">CryptoTracker</h3>
+              <p className="text-gray-400">Your trusted crypto tracking platform</p>
+            </div>
+            {[
+              {
+                title: "Product",
+                links: ["Features", "Pricing", "API", "Documentation"]
+              },
+              {
+                title: "Company",
+                links: ["About", "Blog", "Careers", "Press"]
+              },
+              {
+                title: "Resources",
+                links: ["Help Center", "Community", "Contact", "Status"]
+              }
+            ].map((column, index) => (
+              <div key={index}>
+                <h3 className="text-lg font-bold mb-4">{column.title}</h3>
+                <ul className="space-y-2">
+                  {column.links.map((link, linkIndex) => (
+                    <li key={linkIndex}>
+                      <a href="#" className="text-gray-400 hover:text-white">
+                        {link}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
+            <p>© 2025 CryptoTracker. All rights reserved.</p>
+          </div>
+        </div>
       </footer>
     </div>
   );
-}
+};
+
+export default Home;
