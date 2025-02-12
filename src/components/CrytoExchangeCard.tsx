@@ -1,6 +1,6 @@
 import React from 'react'
 import { Exchange } from './types'
-import { ExternalLink, PackageX } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 import Image from 'next/image';
 
 const TrustScoreIndicator = ({ score }: { score: number }) => (
