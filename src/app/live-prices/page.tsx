@@ -4,7 +4,7 @@ import Card from "@/components/Card";
 import { CryptoData } from "@/components/types";
 import PageHero from "@/components/PageHero";
 
-async function getSSR(): Promise<CryptoData[]> {
+async function getData(): Promise<CryptoData[]> {
     try {
       const res = await fetch(
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd",
@@ -33,9 +33,8 @@ async function getSSR(): Promise<CryptoData[]> {
   }
 
 const CryptoTracker = async () => {
-  const cryptos: CryptoData[] = await getSSR();
+  const cryptos: CryptoData[] = await getData();
 
-  // Calculate market statistics
   const totalMarketCap = cryptos.reduce((sum, crypto) => sum + crypto.market_cap, 0);
   const totalVolume = cryptos.reduce((sum, crypto) => sum + crypto.total_volume, 0);
   const positivePerformers = cryptos.filter(c => c.price_change_percentage_24h > 0).length;

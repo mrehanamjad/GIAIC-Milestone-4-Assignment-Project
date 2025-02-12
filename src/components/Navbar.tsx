@@ -2,23 +2,25 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
 
   const navLinks = [
+    {href: `/`,label: 'Home'},
     { href: '/live-prices', label: 'Live Prices' },
-    { href: '/top-10', label: 'Top 10' },
+    // { href: '/top-10', label: 'Top 10' },
     { href: '/markets', label: 'Markets' },
-    { href: '/portfolio', label: 'Portfolio' },
+    // { href: '/portfolio', label: 'Portfolio' },
   ];
 
-  const resourceLinks = [
-    { href: '/learn', label: 'Learn' },
-    { href: '/news', label: 'News' },
-    { href: '/analytics', label: 'Analytics' },
-  ];
+  // const resourceLinks = [
+  //   { href: '/learn', label: 'Learn' },
+  //   { href: '/news', label: 'News' },
+  //   { href: '/analytics', label: 'Analytics' },
+  // ];
 
   return (
     <div className="relative">
@@ -48,9 +50,10 @@ const Navbar = () => {
                   {link.label}
                 </Link>
               ))}
-              
+
+             {/* TODO:  */}
               {/* Resources dropdown */}
-              <div className="relative">
+              {/* <div className="relative">
                 <button
                   onClick={() => setIsResourcesOpen(!isResourcesOpen)}
                   className="px-4 py-2 text-sm text-gray-300 hover:text-white rounded-lg hover:bg-white/5 transition-colors flex items-center gap-1"
@@ -72,7 +75,15 @@ const Navbar = () => {
                     ))}
                   </div>
                 )}
-              </div>
+              </div> */}
+
+          <SignedOut>
+            <SignInButton />
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+
             </div>
 
             {/* Mobile menu button */}
@@ -104,9 +115,10 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
-            
+
+           {/* TODO:  */}  
             {/* Mobile resources dropdown */}
-            <div className="px-4 py-2">
+            {/* <div className="px-4 py-2">
               <button
                 onClick={() => setIsResourcesOpen(!isResourcesOpen)}
                 className="flex items-center justify-between w-full text-base text-gray-300 hover:text-white"
@@ -126,7 +138,16 @@ const Navbar = () => {
                   </Link>
                 ))}
               </div>
-            </div>
+            </div> */}
+
+<SignedOut>
+            <SignInButton />
+          </SignedOut>
+          <SignedIn>
+            <UserButton  />
+          </SignedIn>
+
+
           </div>
         </div>
       </nav>
