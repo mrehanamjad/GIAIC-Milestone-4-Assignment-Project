@@ -1,6 +1,7 @@
 import React from 'react'
 import { Exchange } from './types'
-import { ExternalLink } from 'lucide-react'
+import { ExternalLink, PackageX } from 'lucide-react'
+import Image from 'next/image';
 
 const TrustScoreIndicator = ({ score }: { score: number }) => (
   <div className="flex gap-1">
@@ -24,10 +25,12 @@ const CrytoExchangeCard: React.FC<{exchange: Exchange}> = ({exchange}) => {
     <div className="flex items-start justify-between mb-6">
       <div className="flex items-center gap-4">
         <div className="relative">
-          <img
+          <Image
             src="/api/placeholder/48/48"
             alt={exchange.name}
             className="w-12 h-12 rounded-xl"
+            height={48}
+            width={48}
           />
           <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-gray-800 flex items-center justify-center">
             <span className="text-xs font-bold">#{exchange.trust_score_rank}</span>

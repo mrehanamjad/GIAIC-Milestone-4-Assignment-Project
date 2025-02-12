@@ -1,12 +1,11 @@
 'use client'
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
 
   const navLinks = [
     {href: `/`,label: 'Home'},
@@ -16,11 +15,6 @@ const Navbar = () => {
     // { href: '/portfolio', label: 'Portfolio' },
   ];
 
-  // const resourceLinks = [
-  //   { href: '/learn', label: 'Learn' },
-  //   { href: '/news', label: 'News' },
-  //   { href: '/analytics', label: 'Analytics' },
-  // ];
 
   return (
     <div className="relative">
@@ -50,32 +44,6 @@ const Navbar = () => {
                   {link.label}
                 </Link>
               ))}
-
-             {/* TODO:  */}
-              {/* Resources dropdown */}
-              {/* <div className="relative">
-                <button
-                  onClick={() => setIsResourcesOpen(!isResourcesOpen)}
-                  className="px-4 py-2 text-sm text-gray-300 hover:text-white rounded-lg hover:bg-white/5 transition-colors flex items-center gap-1"
-                >
-                  Resources
-                  <ChevronDown className="w-4 h-4" />
-                </button>
-                
-                {isResourcesOpen && (
-                  <div className="absolute top-full right-0 mt-2 w-48 bg-gray-900 rounded-lg shadow-lg border border-gray-800 py-2">
-                    {resourceLinks.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5"
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div> */}
 
           <SignedOut>
             <SignInButton />
@@ -115,30 +83,6 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
-
-           {/* TODO:  */}  
-            {/* Mobile resources dropdown */}
-            {/* <div className="px-4 py-2">
-              <button
-                onClick={() => setIsResourcesOpen(!isResourcesOpen)}
-                className="flex items-center justify-between w-full text-base text-gray-300 hover:text-white"
-              >
-                Resources
-                <ChevronDown className={`w-4 h-4 transform transition-transform ${isResourcesOpen ? 'rotate-180' : ''}`} />
-              </button>
-              <div className={`mt-2 space-y-1 ${isResourcesOpen ? 'block' : 'hidden'}`}>
-                {resourceLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="block px-4 py-2 text-sm text-gray-400 hover:text-white rounded-lg hover:bg-white/5 transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            </div> */}
 
 <SignedOut>
             <SignInButton />

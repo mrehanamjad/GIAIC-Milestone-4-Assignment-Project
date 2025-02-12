@@ -9,8 +9,6 @@ import CrytoExchangeCard from '@/components/CrytoExchangeCard';
 
 const MarketsPage = ({exchanges}:{exchanges:Exchange[]}) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedFilter, setSelectedFilter] = useState('all');
-
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white">
@@ -82,7 +80,7 @@ const MarketsPage = ({exchanges}:{exchanges:Exchange[]}) => {
         {/* Exchange Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {exchanges.map((exchange) => (
-          <CrytoExchangeCard exchange={exchange} />
+          <CrytoExchangeCard key={exchange.id} exchange={exchange} />
           ))}
         </div>
       </div>
